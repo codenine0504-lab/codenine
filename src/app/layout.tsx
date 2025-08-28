@@ -7,6 +7,7 @@ import { Toaster } from "@/components/ui/toaster"
 export const metadata: Metadata = {
   title: 'CODE-9',
   description: 'Innovation meets collaboration.',
+  manifest: '/manifest.json',
 };
 
 export default function RootLayout({
