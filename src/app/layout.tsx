@@ -5,7 +5,7 @@ import { Footer } from '@/components/common/Footer';
 import { Toaster } from "@/components/ui/toaster"
 
 export const metadata: Metadata = {
-  title: 'Codenine',
+  title: 'CODE-9',
   description: 'Innovation meets collaboration.',
 };
 

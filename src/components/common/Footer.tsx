@@ -40,16 +40,19 @@ export function Footer() {
       <footer className="hidden md:block bg-card border-t">
         <div className="container mx-auto px-4 py-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="flex items-center gap-2 text-primary">
-              <CodeXml className="w-6 h-6" />
-              <span className="font-semibold">Codenine</span>
+            <div className="flex items-center gap-2">
+              <CodeXml className="w-6 h-6 text-primary" />
+              <span className="font-semibold">
+                <span className="text-primary">CODE</span>
+                <span className="text-muted-foreground">-9</span>
+              </span>
             </div>
             <nav className="flex gap-4 md:gap-6 text-sm text-muted-foreground">
               <Link href="/" className="hover:text-primary transition-colors">Home</Link>
               <Link href="/teams" className="hover:text-primary transition-colors">Teams</Link>
             </nav>
             <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} Codenine. All rights reserved.
+              © {new Date().getFullYear()} CODE-9. All rights reserved.
             </p>
           </div>
         </div>
