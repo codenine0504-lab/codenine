@@ -1,7 +1,7 @@
 "use client";
 
 import Link from 'next/link';
-import { Home, Users } from 'lucide-react';
+import { Home, Users, LogIn } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
@@ -34,6 +34,12 @@ export function Header() {
               </Button>
             ))}
           </nav>
+          <div className="flex items-center gap-4">
+            <Button variant="outline">
+              <LogIn className="mr-2 h-4 w-4" />
+              Login
+            </Button>
+          </div>
           <div className="md:hidden">
             {/* Mobile menu could be added here */}
           </div>
