@@ -65,23 +65,25 @@ export function Header() {
     <header className="bg-card border-b sticky top-0 z-50">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <Link href="/" className="flex items-center gap-2 font-bold text-lg">
-            <span>
-              <span className="text-primary">CODE</span>
-              <span className="text-muted-foreground">-9</span>
-            </span>
-          </Link>
-          <nav className="hidden md:flex items-center gap-2">
-            {navLinks.map((link) => (
-              <Button asChild variant="ghost" key={link.href} className={cn(pathname === link.href && "bg-accent text-accent-foreground")}>
-                <Link href={link.href} className="flex items-center gap-2">
-                  <link.icon className="w-4 h-4" />
-                  {link.label}
-                </Link>
-              </Button>
-            ))}
-          </nav>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-8">
+            <Link href="/" className="flex items-center gap-2 font-bold text-lg">
+              <span>
+                <span className="text-primary">CODE</span>
+                <span className="text-muted-foreground">-9</span>
+              </span>
+            </Link>
+            <nav className="hidden md:flex items-center gap-2">
+              {navLinks.map((link) => (
+                <Button asChild variant="ghost" key={link.href} className={cn(pathname === link.href && "bg-accent text-accent-foreground")}>
+                  <Link href={link.href} className="flex items-center gap-2">
+                    <link.icon className="w-4 h-4" />
+                    {link.label}
+                  </Link>
+                </Button>
+              ))}
+            </nav>
+          </div>
+          <div className="flex items-center">
           {user ? (
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
@@ -114,9 +116,6 @@ export function Header() {
                 Login
               </Button>
             )}
-          </div>
-          <div className="md:hidden">
-            {/* Mobile menu could be added here */}
           </div>
         </div>
       </div>
