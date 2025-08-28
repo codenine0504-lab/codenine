@@ -1,7 +1,7 @@
 "use client";
 
 import Link from 'next/link';
-import { CodeXml, Home, Users } from 'lucide-react';
+import { Home, Users } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { usePathname } from 'next/navigation';
 
@@ -41,7 +41,6 @@ export function Footer() {
         <div className="container mx-auto px-4 py-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-2">
-              <CodeXml className="w-6 h-6 text-primary" />
               <span className="font-semibold">
                 <span className="text-primary">CODE</span>
                 <span className="text-muted-foreground">-9</span>
