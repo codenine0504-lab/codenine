@@ -8,8 +8,10 @@ export default function Home() {
       {/* Hero Section */}
       <section className="py-20 md:py-32 bg-background">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-primary tracking-tight">
-            Welcome to CODE-9
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
+            <span className="text-foreground">Welcome to </span>
+            <span className="text-primary">CODE</span>
+            <span className="text-muted-foreground">-9</span>
           </h1>
           <p className="mt-4 md:mt-6 max-w-3xl mx-auto text-lg md:text-xl text-foreground/80">
             At CODE-9, we believe the best ideas come from teamwork across disciplines. We unite diverse knowledge to make things possible.
