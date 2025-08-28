@@ -1,7 +1,7 @@
 "use client";
 
 import Link from 'next/link';
-import { Home, Users, LogIn, LogOut } from 'lucide-react';
+import { Home, Users, LogIn, LogOut, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
@@ -18,10 +18,25 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import { doc, setDoc } from 'firebase/firestore';
+import { useState, useEffect } from 'react';
 
 export function Header() {
   const pathname = usePathname();
   const [user] = useAuthState(auth);
+  const [installPrompt, setInstallPrompt] = useState<Event | null>(null);
+
+  useEffect(() => {
+    const handleBeforeInstallPrompt = (e: Event) => {
+      e.preventDefault();
+      setInstallPrompt(e);
+    };
+
+    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+
+    return () => {
+      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+    };
+  }, []);
 
   const navLinks = [
     { href: '/', label: 'Home', icon: Home },
@@ -53,6 +68,17 @@ export function Header() {
       await signOut(auth);
     } catch (error) {
       console.error("Error signing out: ", error);
+    }
+  };
+
+  const handleInstallClick = async () => {
+    if (!installPrompt) return;
+    // The type assertion is necessary because the default Event type doesn't have the prompt method.
+    const promptEvent = installPrompt as any;
+    promptEvent.prompt();
+    const { outcome } = await promptEvent.userChoice;
+    if (outcome === 'accepted') {
+      setInstallPrompt(null);
     }
   };
   
@@ -104,6 +130,12 @@ export function Header() {
                     </div>
                   </DropdownMenuLabel>
                   <DropdownMenuSeparator />
+                  {installPrompt && (
+                    <DropdownMenuItem onClick={handleInstallClick} className="text-primary focus:bg-primary/10 focus:text-primary">
+                      <Download className="mr-2 h-4 w-4" />
+                      <span>Install App</span>
+                    </DropdownMenuItem>
+                  )}
                   <DropdownMenuItem onClick={handleLogout}>
                     <LogOut className="mr-2 h-4 w-4" />
                     <span>Log out</span>
