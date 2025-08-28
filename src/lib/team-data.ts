@@ -61,14 +61,14 @@ export const teamMembers: TeamMember[] = [
     dataAiHint: 'man office',
   },
   {
-    id: 6,
-    name: 'Olivia Martinez',
-    role: 'Frontend Developer',
-    avatarUrl: 'https://picsum.photos/id/242/400/400',
+    id: 7,
+    name: 'Code Nine',
+    role: 'AI Specialist',
+    avatarUrl: 'https://picsum.photos/id/243/400/400',
     department: 'Engineering',
-    tags: ['React', 'CSS', 'Accessibility'],
-    bio: 'Olivia is a frontend developer who is passionate about building accessible and inclusive web experiences. She believes that the web should be for everyone and champions best practices in accessibility.',
-    dataAiHint: 'woman glasses',
+    tags: ['AI', 'Genkit', 'Next.js'],
+    bio: 'The newest member of our team, specializing in AI-driven solutions and creative problem-solving. Ready to innovate and build the future.',
+    dataAiHint: 'robot technology',
   },
 ];
 
